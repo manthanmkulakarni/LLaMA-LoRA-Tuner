@@ -311,6 +311,7 @@ def train(
     train_output = trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     model.save_pretrained(output_dir)
+    trainer.save_pretrained(output_dir)
     print(f"Model saved to {output_dir}.")
 
     with open(os.path.join(output_dir, "trainer_log_history.jsonl"), 'w') as trainer_log_history_jsonl_file:
