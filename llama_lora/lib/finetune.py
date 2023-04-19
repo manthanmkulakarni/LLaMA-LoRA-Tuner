@@ -311,6 +311,7 @@ def train(
     train_output = trainer.train(resume_from_checkpoint=resume_from_checkpoint)
 
     model.save_pretrained(output_dir)
+    model.config.to_json_file(f"{output_dir}/config.json")
     trainer.save_model(output_dir)
     print(f"Model saved to {output_dir}.")
 
