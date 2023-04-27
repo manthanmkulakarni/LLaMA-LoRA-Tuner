@@ -677,7 +677,7 @@ def handle_load_params_from_model(
     )
 
 
-default_lora_target_module_choices = ["q_proj", "k_proj", "v_proj", "o_proj"]
+default_lora_target_module_choices = ["q_proj", "k_proj", "v_proj", "o_proj","query_key_value"]
 
 
 def handle_lora_target_modules_add(choices, new_module, selected_modules):
