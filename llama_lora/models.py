@@ -37,21 +37,21 @@ def get_new_base_model(base_model_name):
             # device_map="auto",
             # ? https://github.com/tloen/alpaca-lora/issues/21
             device_map={'': 0},
-            trust_remote_code=Global.trust_remote_code
+            trust_remote_code=True
         )
     elif device == "mps":
         model = AutoModelForCausalLM.from_pretrained(
             base_model_name,
             device_map={"": device},
             torch_dtype=torch.float16,
-            trust_remote_code=Global.trust_remote_code
+            trust_remote_code=True
         )
     else:
         model = AutoModelForCausalLM.from_pretrained(
             base_model_name,
             device_map={"": device},
             low_cpu_mem_usage=True,
-            trust_remote_code=Global.trust_remote_code
+            trust_remote_code=True
         )
 
     tokenizer = get_tokenizer(base_model_name)
